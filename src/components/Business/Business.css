@@ -1,0 +1,33 @@
+.business-container{
+    width: 25%;
+    display: inline-block;
+    margin: auto 20px;
+    border: 1px solid  rgb(206, 201, 201);
+    border-radius: 5px;
+    height: 300px;
+}
+
+.image{
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    height: 180px;
+}
+
+.business-details{
+    text-align: left;
+    margin-left: 10px;
+}
+
+.business-name{
+    color: #0376be !important;
+    margin: 0px;
+    text-decoration: none;
+}
+
+.business-name:hover{
+    text-decoration: underline;
+}
+
+.zero-margin{
+    margin: 0px;
+}

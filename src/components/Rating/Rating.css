@@ -1,0 +1,15 @@
+.box{
+    border-radius: 5px;
+    background-color: rgb(206, 201, 201);
+    display: inline;
+    padding: 0px 5px;
+    margin-right: 5px;
+}
+
+.star{
+    color:white;
+}
+
+.rating-container{
+    display: inline;
+}
