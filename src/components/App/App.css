@@ -1,17 +1,35 @@
 .App-body {
   text-align: center;
   margin: 0px;
+  min-width: 1040px;
 }
 
 .jumbo-background{
-  background-image: url('../../utilities/pictures/homepicture.jpg');
-  background-position: center;
+  background-image: url('../../utilities/pictures/jumbo.jfif');
+  background-position: 30% 30%;
+  background-size: cover;
   height: 90vh;
   position: relative;
 }
 
+#yelp-logo{
+  background-size: 160px 80px;
+  width: 160px;
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.overlay{
+  background: rgba(0,0,0,0.5);
+  height: 90vh;
+}
+
 .vertical-center{
   padding-top: 200px;
+}
+
+#service-type-container{
+  margin: 10px auto;
 }
 
 .service-type{
@@ -37,8 +55,8 @@
 
 .photo-creds{
   position: absolute;
-  bottom: 40px;
-  left: 40vw;
+  bottom: 6%;
+  left: 42%;
   color: #fff;
 }
 

@@ -35,13 +35,15 @@ class App extends React.Component{
     return (
       <div className="App-body">
         <div className="jumbo-background">
+          <div className="overlay">
           <div className="vertical-center">
             <div>
-              <h1>Welp</h1>
+              <img id="yelp-logo" alt="yelp logo"
+              src="https://s3-media0.fl.yelpcdn.com/assets/public/default@2x.yji-3e0b6fdd67576efda4390daddc35c8f1.png"/>
             </div>
             <div><SearchBar yelpSearch={this.yelpSearch} yelpAutocomplete={this.yelpAutocomplete} 
             termsList={this.state.termsList} latitude={this.state.latitude} longitude={this.state.longitude}/></div>
-            <div>
+            <div id="service-type-container">
               <a href='https://www.yelp.ca/search?cflt=restaurants' className='service-type-link'>
               <span className="service-type"><i className="fas fa-hamburger service-icon"/>Restaurants</span></a>
               <a href='https://www.yelp.ca/search?cflt=nightlife' className='service-type-link'>
@@ -53,10 +55,11 @@ class App extends React.Component{
             </div>
             <div className="photo-creds">
               <div><span><b><a href="https://unsplash.com/photos/Ciqxn7FE4vE" className="photo-creds-details">
-                Scandic Hotel Kødbyen Vesterbro Restaurant</a></b></span></div>
-              <div><span>Photo by <b><a href="https://unsplash.com/@nickkarvounis" className="photo-creds-details">
-                Nick Karvounis</a></b></span></div>
+                Gourmet Meal and White Wine</a></b></span></div>
+              <div><span>Photo by <b><a href="https://unsplash.com/@jaywennington" className="photo-creds-details">
+                Jay Wennington</a></b></span></div>
             </div>
+          </div>
           </div>
         </div>
         <div className="section">
