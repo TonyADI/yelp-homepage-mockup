@@ -34,7 +34,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="App-body">
-        <div className="jumbo-background">
+        <div className="hero-background">
           <div className="overlay">
           <div className="vertical-center">
             <div>
@@ -44,17 +44,29 @@ class App extends React.Component{
             <div><SearchBar yelpSearch={this.yelpSearch} yelpAutocomplete={this.yelpAutocomplete} 
             termsList={this.state.termsList} latitude={this.state.latitude} longitude={this.state.longitude}/></div>
             <div id="service-type-container">
-              <a href='https://www.yelp.ca/search?cflt=restaurants' className='service-type-link'>
-              <span className="service-type"><i className="fas fa-hamburger service-icon"/>Restaurants</span></a>
-              <a href='https://www.yelp.ca/search?cflt=nightlife' className='service-type-link'>
-              <span className="service-type"><i className="fa fa-glass service-icon"/>Nightlife</span></a>
-              <span className="service-type"><i className="fa fa-wrench service-icon"/>Local Services</span>
-              <a href='https://www.yelp.ca/search?find_desc=Delivery' className='service-type-link'>
-              <span className="service-type"><i className="fa fa-bicycle service-icon"/>Delivery</span></a>
-              <span className="service-type"><i className="fa fa-home service-icon"/>Black Owned</span>
+              <ul>
+                <li>
+                  <a href='https://www.yelp.ca/search?cflt=restaurants' className='service-type-link'>
+                  <span className="service-type"><i className="fas fa-hamburger service-icon"/>Restaurants</span></a>
+                </li>
+                <li>
+                  <a href='https://www.yelp.ca/search?cflt=nightlife' className='service-type-link'>
+                  <span className="service-type"><i className="fa fa-glass service-icon"/>Nightlife</span></a>
+                </li>
+                <li>
+                  <span className="service-type"><i className="fa fa-wrench service-icon"/>Local Services</span> 
+                </li>
+                <li> 
+                  <a href='https://www.yelp.ca/search?find_desc=Delivery' className='service-type-link'>
+                  <span className="service-type"><i className="fa fa-bicycle service-icon"/>Delivery</span></a>
+                </li>
+                <li>
+                  <span className="service-type"><i className="fa fa-home service-icon"/>Black Owned</span>
+                </li>
+              </ul>
             </div>
             <div className="photo-creds">
-              <div><span><b><a href="https://unsplash.com/photos/Ciqxn7FE4vE" className="photo-creds-details">
+              <div><span><b><a href="https://unsplash.com/photos/N_Y88TWmGwA" className="photo-creds-details">
                 Gourmet Meal and White Wine</a></b></span></div>
               <div><span>Photo by <b><a href="https://unsplash.com/@jaywennington" className="photo-creds-details">
                 Jay Wennington</a></b></span></div>
@@ -65,13 +77,22 @@ class App extends React.Component{
         <div className="section">
           <div><h3 className="yelp-color">Welp Toronto</h3></div>
           <div className="locations">
-            <a href='https://www.yelp.ca/richmond-hill' className="location"><span className="span-loc">Richmond Hill</span></a>
-            <a href='https://www.yelp.ca/vancouver' className="location"><span className="span-loc">Vancouver</span></a>
-            <a href='https://www.yelp.ca/calgary' className="location"><span className="span-loc">Calgary</span></a>
-            <a href='https://www.yelp.ca/edmonton' className="location"><span className="span-loc">Edmonton</span></a>
-            <a href='https://www.yelp.ca/halifax' className="location"><span className="span-loc">Halifax</span></a>
-            <a href='https://www.yelp.ca/montreal' className="location"><span className="span-loc">Montreal</span></a>
-            <a href='https://www.yelp.ca/locations' className="location"><span className="span-loc">More Cities</span></a>
+            <ul>
+              <li><a href='https://www.yelp.ca/richmond-hill' className="location">
+                <span className="span-loc">Richmond Hill</span></a></li>
+              <li><a href='https://www.yelp.ca/vancouver' className="location">
+                <span className="span-loc">Vancouver</span></a></li>
+              <li><a href='https://www.yelp.ca/calgary' className="location">
+                <span className="span-loc">Calgary</span></a></li>
+              <li><a href='https://www.yelp.ca/edmonton' className="location">
+                <span className="span-loc">Edmonton</span></a></li>
+              <li><a href='https://www.yelp.ca/halifax' className="location">
+                <span className="span-loc">Halifax</span></a></li>
+              <li><a href='https://www.yelp.ca/montreal' className="location">
+                <span className="span-loc">Montreal</span></a></li>
+              <li><a href='https://www.yelp.ca/locations' className="location">
+                <span className="span-loc">More Cities</span></a></li>
+            </ul>
           </div>
         </div>
         <div className="article">
