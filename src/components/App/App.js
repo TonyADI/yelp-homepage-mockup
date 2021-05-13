@@ -7,13 +7,15 @@ import './App.css';
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {businesses:[], termsList:[], hotBusinesses:[], longitude: '', latitude: ''}
+    this.state = {businesses:[], termsList:[], hotBusinesses:[], longitude: '',
+     latitude: ''}
     this.yelpSearch = this.yelpSearch.bind(this)
     this.yelpAutocomplete = this.yelpAutocomplete.bind(this)
   }
 
   yelpSearch(term, location){
-    Yelp.search(term, location).then(businesses => {this.setState({businesses:businesses})});
+    Yelp.search(term, location).then(businesses => {this.setState({businesses:
+      businesses})});
   }
 
   yelpAutocomplete(term){
@@ -26,9 +28,10 @@ class App extends React.Component{
     navigator.geolocation.getCurrentPosition((position) => {
         longitude = position.coords.longitude; 
         latitude = position.coords.latitude;
+        Yelp.sortBy(longitude, latitude, 3, 'rating').then(businesses => 
+          {this.setState({hotBusinesses: businesses})});
         this.setState({longitude: longitude, latitude: latitude});
     });
-    Yelp.sortBy(longitude, latitude, 6, 'rating').then(businesses => {this.setState({hotBusinesses: businesses})});
   }
 
   render(){
@@ -42,33 +45,41 @@ class App extends React.Component{
               src="https://s3-media0.fl.yelpcdn.com/assets/public/default@2x.yji-3e0b6fdd67576efda4390daddc35c8f1.png"/>
             </div>
             <div><SearchBar yelpSearch={this.yelpSearch} yelpAutocomplete={this.yelpAutocomplete} 
-            termsList={this.state.termsList} latitude={this.state.latitude} longitude={this.state.longitude}/></div>
+            termsList={this.state.termsList} latitude={this.state.latitude} 
+            longitude={this.state.longitude}/></div>
             <div id="service-type-container">
               <ul>
                 <li>
                   <a href='https://www.yelp.ca/search?cflt=restaurants' className='service-type-link'>
-                  <span className="service-type"><i className="fas fa-hamburger service-icon"/>Restaurants</span></a>
+                  <span className="service-type"><i className="fas fa-hamburger 
+                  service-icon"/>Restaurants</span></a>
                 </li>
                 <li>
                   <a href='https://www.yelp.ca/search?cflt=nightlife' className='service-type-link'>
-                  <span className="service-type"><i className="fa fa-glass service-icon"/>Nightlife</span></a>
+                  <span className="service-type"><i className="fa fa-glass 
+                  service-icon"/>Nightlife</span></a>
                 </li>
                 <li>
-                  <span className="service-type"><i className="fa fa-wrench service-icon"/>Local Services</span> 
+                  <span className="service-type"><i className="fa fa-wrench 
+                  service-icon"/>Local Services</span> 
                 </li>
                 <li> 
                   <a href='https://www.yelp.ca/search?find_desc=Delivery' className='service-type-link'>
-                  <span className="service-type"><i className="fa fa-bicycle service-icon"/>Delivery</span></a>
+                  <span className="service-type"><i className="fa fa-bicycle 
+                  service-icon"/>Delivery</span></a>
                 </li>
                 <li>
-                  <span className="service-type"><i className="fa fa-home service-icon"/>Black Owned</span>
+                  <span className="service-type"><i className="fa fa-home 
+                  service-icon"/>Black Owned</span>
                 </li>
               </ul>
             </div>
             <div className="photo-creds">
-              <div><span><b><a href="https://unsplash.com/photos/N_Y88TWmGwA" className="photo-creds-details">
+              <div><span><b><a href="https://unsplash.com/photos/N_Y88TWmGwA" 
+              className="photo-creds-details">
                 Gourmet Meal and White Wine</a></b></span></div>
-              <div><span>Photo by <b><a href="https://unsplash.com/@jaywennington" className="photo-creds-details">
+              <div><span>Photo by <b><a href="https://unsplash.com/@jaywennington" 
+              className="photo-creds-details">
                 Jay Wennington</a></b></span></div>
             </div>
           </div>

@@ -45,7 +45,8 @@ export class SearchBar extends React.Component{
 
     reverseGeocoding(long, lat){
         if(long && lat){
-            locationIQ.reverse(long, lat).then(city => {this.setState({location: city})}, error => console.log(error));
+            locationIQ.reverse(long, lat).then(city => {this.setState({location: city})}, 
+            error => console.log(error));
         }
         else{
             alert("You need to grant acess to your location.")
@@ -77,6 +78,12 @@ export class SearchBar extends React.Component{
         document.addEventListener('mousedown', this.handleClick);
     }
 
+    componentDidUpdate(prevProps){
+        if(this.props.latitude !== prevProps.latitude){
+            this.reverseGeocoding(this.props.longitude, this.props.latitude);
+        }
+    }
+
     render(){
         return(
             <div>
@@ -84,30 +91,35 @@ export class SearchBar extends React.Component{
                     <label className="label-background">
                     <div className="input-container">
                         <span className="span-background">Find</span>
-                        <input type='text' name='term' placeholder='burgers, barbers, spas, handymen...' className="input-background"
+                        <input type='text' name='term' placeholder='burgers, barbers, spas, handymen...' 
+                        className="input-background"
                         onChange={this.handleChange} value={this.state.term} onFocus={this.handleFocus}/>
                         {!this.state.term && 
                             <div className="dropdown" style={{display: this.state.termDisplay}}>
-                                <button className="dropdown-item" onClick={this.handleTermClick} value="Restaurants">
-                                    <i className="fas fa-hamburger icon"></i>Restaurants</button>
-                                <button className="dropdown-item" onClick={this.handleTermClick} value="Delivery">
-                                    <i className="fas fa-truck icon"></i>Delivery</button>
-                                <button className="dropdown-item" onClick={this.handleTermClick} value="Takeout">
-                                    <i className="fas fa-shopping-bag icon"></i>Takeout</button>
-                                <button className="dropdown-item" onClick={this.handleTermClick} value="Accountants">
-                                    <i className="fas fa-calculator icon"></i>Accountants</button>
-                                <button className="dropdown-item" onClick={this.handleTermClick} value="Plumbers">
-                                    <i className="fa fa-bath icon"></i>Plumbers</button>
-                                <button className="dropdown-item" onClick={this.handleTermClick} value="Auto Repair">
-                                    <i className="fa fa-wrench icon"></i>Auto Repair</button>
+                            <ul>
+                                <li><button className="dropdown-item" onClick={this.handleTermClick} value="Restaurants">
+                                    <i className="fas fa-hamburger icon"></i>Restaurants</button></li>
+                                <li><button className="dropdown-item" onClick={this.handleTermClick} value="Delivery">
+                                    <i className="fas fa-truck icon"></i>Delivery</button></li>
+                                <li><button className="dropdown-item" onClick={this.handleTermClick} value="Takeout">
+                                    <i className="fas fa-shopping-bag icon"></i>Takeout</button></li>
+                                <li><button className="dropdown-item" onClick={this.handleTermClick} value="Accountants">
+                                    <i className="fas fa-calculator icon"></i>Accountants</button></li>
+                                <li><button className="dropdown-item" onClick={this.handleTermClick} value="Plumbers">
+                                    <i className="fa fa-bath icon"></i>Plumbers</button></li>
+                                <li><button className="dropdown-item" onClick={this.handleTermClick} value="Auto Repair">
+                                    <i className="fa fa-wrench icon"></i>Auto Repair</button></li>
+                            </ul>
                             </div>
                         }
                         <div className="dropdown" style={{display: this.state.termDisplay}}>
+                            <ul>
                             {(this.props.termsList && this.state.term) ? this.props.termsList.map((text)=>{
-                                return <button className="dropdown-item" onClick={this.handleTermClick}
+                                return <li><button className="dropdown-item" onClick={this.handleTermClick}
                                 value={text.term}
-                                >{text.term}</button>
+                                >{text.term}</button></li>
                             }) : null}
+                            </ul>
                         </div>
                     </div>
                     <div className="input-container">
@@ -120,7 +132,7 @@ export class SearchBar extends React.Component{
                                 </i>Current Location</button>
                         </div>
                     </div>
-                        <button type="submit" className="submit-background"><i className="fa fa-search search"></i></button>
+                        <button type="submit" className="submit-button"><i className="fa fa-search search"></i></button>
                     </label>
                 </form>
             </div>

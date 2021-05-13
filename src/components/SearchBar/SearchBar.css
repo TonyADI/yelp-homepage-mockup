@@ -26,7 +26,7 @@ input:focus{
     outline: none;
 }
 
-.submit-background{
+.submit-button{
     background-color: rgb(211, 35, 35);
     border: 0px;
     border-radius: 0px 5px 5px 0px;
@@ -39,9 +39,13 @@ input:focus{
   padding: 0px 10px;
 }
 
-.submit-background:hover{
+.submit-button:hover{
   filter: brightness(0.8);
   cursor: pointer;
+}
+
+.submit-button:focus{
+  outline: none;
 }
 
 .input-container{
@@ -62,6 +66,15 @@ input:focus{
   display: none;
 }
 
+.dropdown ul{
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li{
+  list-style: none;
+}
+
 .dropdown-location{
   left: 10px;
   width: 97.5%;
@@ -77,10 +90,18 @@ input:focus{
   width: 100%;
   padding: 11px 15px;
   border: 0px;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px;
   background-color: #fff;
   text-align: left;
   font-size: 16px;
+}
+
+.dropdown ul li:last-child .dropdown-item{
+  border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown-item:focus{
+  outline: none;
 }
 
 .icon{
