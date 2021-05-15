@@ -1,10 +1,11 @@
 .business-container{
-    width: 25%;
+    width: 300px;
     display: inline-block;
-    margin: auto 20px;
-    border: 1px solid  rgb(206, 201, 201);
+    margin: 20px;
+    border: 0.5px solid  rgb(206, 201, 201);
     border-radius: 5px;
-    height: 300px;
+    min-height: 325px;
+    vertical-align: top;
 }
 
 .image{
@@ -15,7 +16,8 @@
 
 .business-details{
     text-align: left;
-    margin-left: 10px;
+    margin: 10px;
+    line-height: 25px;
 }
 
 .business-name{
