@@ -75,6 +75,10 @@ export class SearchBar extends React.Component{
     }
 
     componentDidMount(){
+        const search_input = document.querySelector('.input-background');
+        const search_label = document.querySelector('.label-background');
+        search_input.addEventListener('focus', () => search_label.classList.add('search-input-focus'));
+        search_input.addEventListener('blur', () => search_label.classList.remove('search-input-focus'));
         document.addEventListener('mousedown', this.handleClick);
     }
 
