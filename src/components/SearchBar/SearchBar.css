@@ -80,6 +80,10 @@ input:focus{
   width: 97.5%;
 }
 
+.dropdown-location button {
+    border-radius: 0px 0px 5px 5px;
+}
+
 .dropdown-item:hover{
   background-color: rgb(50, 132, 184);
   color: #fff;
@@ -102,6 +106,10 @@ input:focus{
 
 .dropdown-item:focus{
   outline: none;
+}
+
+.search-input-focus{
+  border-radius: 5px 5px 5px 0px;
 }
 
 .icon{
