@@ -109,7 +109,8 @@ class App extends React.Component{
         <div className="article">
           <div><h4 className="yelp-color">Hot {'&'} New Businesses</h4></div>
           <div>
-            <BusinessList businesses={this.state.hotBusinesses}/>
+            {this.state.hotBusinesses ? <BusinessList businesses={this.state.hotBusinesses}/> :
+            'Loading...'}
           </div>
           <div>
             <h4 className="yelp-color">Search Results</h4>
