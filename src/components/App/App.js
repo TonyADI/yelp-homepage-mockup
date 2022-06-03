@@ -1,5 +1,6 @@
 import React from 'react';
 import { BusinessList } from '../BusinessList/BusinessList';
+import { Location } from '../Location/Location';
 import { SearchBar } from '../SearchBar/SearchBar'
 import { Yelp } from '../../utilities/Yelp';
 import './App.css';
@@ -11,6 +12,15 @@ class App extends React.Component{
      latitude: ''}
     this.yelpSearch = this.yelpSearch.bind(this)
     this.yelpAutocomplete = this.yelpAutocomplete.bind(this)
+
+    this.locations = [{link: 'https://www.yelp.ca/richmond-hill', name: 'Richmond Hill'}, 
+                       {link: 'https://www.yelp.ca/vancouver', name: 'Vancouver'},
+                       {link: 'https://www.yelp.ca/calgary', name: 'Calgary'},
+                       {link: 'https://www.yelp.ca/edmonton', name: 'Edmonton'},
+                       {link: 'https://www.yelp.ca/halifax', name: 'Halifax'},
+                       {link: 'https://www.yelp.ca/montreal', name: 'Montreal'},
+                       {link : 'https://www.yelp.ca/locations', name: 'More Cities'}
+                    ];
   }
 
   yelpSearch(term, location){
@@ -33,6 +43,7 @@ class App extends React.Component{
         this.setState({longitude: longitude, latitude: latitude});
     });
   }
+  
 
   render(){
     return (
@@ -89,20 +100,7 @@ class App extends React.Component{
           <div><h3 className="yelp-color">Welp Toronto</h3></div>
           <div className="locations">
             <ul>
-              <li><a href='https://www.yelp.ca/richmond-hill' className="location">
-                <span className="span-loc">Richmond Hill</span></a></li>
-              <li><a href='https://www.yelp.ca/vancouver' className="location">
-                <span className="span-loc">Vancouver</span></a></li>
-              <li><a href='https://www.yelp.ca/calgary' className="location">
-                <span className="span-loc">Calgary</span></a></li>
-              <li><a href='https://www.yelp.ca/edmonton' className="location">
-                <span className="span-loc">Edmonton</span></a></li>
-              <li><a href='https://www.yelp.ca/halifax' className="location">
-                <span className="span-loc">Halifax</span></a></li>
-              <li><a href='https://www.yelp.ca/montreal' className="location">
-                <span className="span-loc">Montreal</span></a></li>
-              <li><a href='https://www.yelp.ca/locations' className="location">
-                <span className="span-loc">More Cities</span></a></li>
+              {this.locations.map(location => <Location name={location.name} link={location.link}/>)}
             </ul>
           </div>
         </div>
